@@ -14,7 +14,7 @@ export class VolunteerComponent implements OnInit {
   volunteerData:any = { }
   constructor(private authservice:AuthService) {} 
   post(){
-    console.log(this.volunteerData)
+    
     this.authservice.sendVolunteerData(this.volunteerData)
   }
  

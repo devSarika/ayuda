@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
 var bcrypt=require('bcrypt')
 var numSaltRounds = 10;
+//VALIDATION
+
 var volunteerSchema = new mongoose.Schema({
    firstname: '',
    lastname: '',
    email: '',
    password: '',
    occupation:'',
-   mobile:'',
+   mobile:Number,
    age:Number
 
 })
@@ -25,5 +27,7 @@ volunteerSchema.pre('save', function(next){
     })
  
  })
+
+ 
  
  module.exports = mongoose.model('Volunteer', volunteerSchema)   
