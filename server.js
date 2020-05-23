@@ -3,14 +3,14 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var Volunteer = require('./models/volunteer.js');
+var Volunteer = require('./backend/models/volunteer.js');
 
-app.use(cors());
+app.use(cors()); 
 app.use(bodyParser.json());
 
 app.post('/register', (req, res) => {
     var volunteerData = req.body;
-    var volunteer = new User((volunteerData));
+    var volunteer = new Volunteer((volunteerData));
     volunteer.save((err, newvolunteer) => {
         if (err)
             return res.status(401).send({ message: 'Error saving ' })
