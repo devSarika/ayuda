@@ -3,12 +3,15 @@ var app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+
+var jwt = require('jwt-simple')
+var bcrypt = require('bcrypt')
 var Volunteer = require('./backend/models/volunteer.js');
 
 app.use(cors()); 
 app.use(bodyParser.json());
 
-app.post('/register', (req, res) => {
+app.post('/volunteerregister', (req, res) => {
     var volunteerData = req.body;
     var volunteer = new Volunteer((volunteerData));
     volunteer.save((err, newvolunteer) => {
@@ -16,7 +19,7 @@ app.post('/register', (req, res) => {
             return res.status(401).send({ message: 'Error saving ' })
         var payload = { sub: newvolunteer._id }
 
-        var token = jwt.encode(payload, '123')
+         var token = jwt.encode(payload, '123')
 
         res.status(200).send({ token })
 

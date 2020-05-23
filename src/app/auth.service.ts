@@ -6,11 +6,12 @@ import  {environment} from '../environments/environment'
 })
 export class AuthService {
   path=environment.path
+  TOKEN_KEY='token'
   constructor(private http:HttpClient) { }
-  sendVolunteerData(registerData)
+  sendVolunteerData(volunteerData)
   {
     
-    this.http.post<any>(this.path+'/register',(registerData)).subscribe(res=> {  
+    this.http.post<any>(this.path+'/volunteerregister',(volunteerData)).subscribe(res=> {  
     
     console.log(res)
     localStorage.setItem('token',res.token)
