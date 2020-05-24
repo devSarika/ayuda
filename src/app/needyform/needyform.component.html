@@ -1,45 +1,92 @@
 <br><br>
 <div class="container">
-<form class="form-horizontal">
+<form class="form-horizontal" method="post">
     <div class="form-group">
-        <label class="control-label col-sm-2" id="fullname">FullName:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Enter Name">
+        <label class="control-label col-sm-2" id="fullname">First Name:</label>
+        <div class="col-sm-4">
+            <input type="text" [(ngModel)]="familyData.firstname" class="form-control" name="firstname" placeholder="Enter First Name" required>
+            <div *ngIf="firstname.errors.required">
+                Name is required.
+              </div>
+        </div> 
+        <label class="control-label col-sm-2" id="fullname">Last Name:</label>
+        <div class="col-sm-4">
+            <input type="text" [(ngModel)]="familyData.lastname" class="form-control" name="lastname" placeholder="Enter Last Name" required>
         </div> 
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" id="fullname">Aadhar No:</label>
-        <div class="col-sm-5">
-            <input type="number" class="form-control" placeholder="Enter Aadhar no">
+        <div class="col-sm-4">
+            <input type="number" [(ngModel)]="familyData.aadhar" class="form-control" name="aadhar" placeholder="Enter Aadhar no">
         </div> 
-    <!-- </div>
-     <div class="form-group"> -->
         <label class="control-label col-sm-2" id="fullname">Family Income:</label>
-        <div class="col-sm-3">
-            <input type="number" class="form-control" placeholder="Enter Family Income">
+        <div class="col-sm-4">
+            <input type="number" [(ngModel)]="familyData.income" class="form-control" name="income" placeholder="Enter Family Income">
         </div> 
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" id="fullname">No of Persons</label>
-        <div class="col-sm-3">
-            <input type="number" class="form-control" placeholder="Enter No of Personss">
+        <label class="control-label col-sm-2" id="fullname">No of Adults:</label>
+        <div class="col-sm-2">
+            <input type="number" [(ngModel)]="familyData.adults" class="form-control" name="adults" placeholder="Enter No of Adults">
         </div> 
-        <label class="control-label col-sm-2" id="fullname">Occupation:</label>
-        <div class="col-sm-5">
-            <input type="text" class="form-control" placeholder="Enter Occupation">
-        </div>
+        <label class="control-label col-sm-2" id="fullname">No of Children:</label>
+        <div class="col-sm-2">
+            <input type="number" [(ngModel)]="familyData.children" class="form-control" name="children" placeholder="Enter No of Children">
+        </div> 
+        <label class="control-label col-sm-2" id="fullname">No of Persons:</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" id="fullname">Situation:</label>
+        <div class="col-sm-10">
+            <textarea type="text" [(ngModel)]="familyData.situation" class="form-control" name="situation" placeholder="Explain Your Situation in words"> </textarea>
+        </div> 
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" id="fullname">Location:</label>
         <div class="col-sm-10">
-            <textarea type="text" class="form-control" placeholder="Enter Location"> </textarea>
+            <textarea type="text" [(ngModel)]="familyData.location" class="form-control" name="location" placeholder="Enter Location"> </textarea>
         </div> 
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" id="fullname">Requirment:</label>
+        <label class="control-label col-sm-2" name="requirment" id="fullname">Requirment:</label>
+        <label class="col-sm-1"></label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Food
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Medical
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Education
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Transportation
+        </label>
+       
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" id="fullname">Occupation:</label>
+        <div class="col-sm-4">
+            <input type="text" [(ngModel)]="familyData.occupation" class="form-control" name="occupation" placeholder="Enter Occupation">
+        </div>
+        <label class="control-label col-sm-2" id="fullname">Phone No:</label>
+        <div class="col-sm-4">
+            <input type="number" [(ngModel)]="familyData.phoneno"  class="form-control" name="phoneno" placeholder="Enter Phone no" maxlength="10">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" name="city" id="fullname">City:</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Enter Name">
-        </div> 
+         <select class="form-control">
+             <option class="form-control">Hyderabad</option>
+             <option class="form-control">Karimanagar</option>
+         </select>
+        </div>
+    </div>
+
+    <div >
+        <input type="submit" (click)="register()" class="btn-success" value="Submit">
     </div>
 
 </form>

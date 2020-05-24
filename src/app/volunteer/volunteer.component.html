@@ -1,0 +1,67 @@
+<br><br>
+<div class="container">
+    <form class="form-horizontal" name="form1">
+        <div class="form-group">
+            <label class="control-label col-sm-2"  >First Name</label>
+            <div class="col-sm-4">
+                <input [(ngModel)]="volunteerData.firstname" type="text"  name="firstname" class="form-control"  placeholder="Enter First Name">
+            </div>
+             <label class="control-label col-sm-2"  >Last Name</label>
+            <div class="col-sm-4">
+                <input [(ngModel)]="volunteerData.lastname" name="lastname" type="text" class="form-control"  placeholder="Enter Last Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2"   >Email</label>
+            <div class="col-sm-4">
+                <input  [(ngModel)]="volunteerData.email" name="email" type="email" class="form-control"  placeholder="Enter Email address">
+            </div>
+            <label class="control-label col-sm-2"  >Password</label>
+            <div class="col-sm-4">
+                <input  [(ngModel)]="volunteerData.password" name="password" type="password" class="form-control"   placeholder="Enter password">
+            </div>
+        </div>
+        <div class="form-group ">
+            <label class="control-label col-sm-2"  >Occupation</label>
+            <div class="col-sm-3">
+                <select class="form-control form-control-sm"  [(ngModel)]="volunteerData.occupation" name="occupation" >
+                    <option value="1" disabled selected>Studying</option>
+                    <option value="2">Passed out</option>
+                    <option value="3">Other</option>
+                  </select>
+            </div>
+            
+            <label class="control-label col-sm-1"   >Mobile NO</label>
+            <div class="col-sm-4">
+                <input [(ngModel)]="volunteerData.mobile" name="mobile" type="text" class="form-control"  placeholder="Enter Mobile no">
+            </div>
+            <label class="control-label col-sm-1"   >Age</label>
+            <div class="col-sm-1">
+                <input  [(ngModel)]="volunteerData.age" name="age" type="number" class="form-control" placeholder="age">
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="control-label col-sm-2"   >Location:</label>
+            <div class="col-sm-10">
+                <textarea  [(ngModel)]="volunteerData.location" name="location" type="text" class="form-control" placeholder="Enter Location"> </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+           
+            <div class="col-sm-10">
+                <button (click)="post()" name="register">Register</button>
+            </div>
+        </div>
+        
+
+         <!-- <div *ngIf="myBooks">
+            <mat-select [(ngModel)]="selected">
+              <mat-option *ngFor="let book of myBooks" name="state">{{book.state}}</mat-option>
+            </mat-select>
+         <p>{{ selected }}</p>
+        </div> -->  
+        
+    </form> 
+    
+</div>
