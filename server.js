@@ -12,22 +12,10 @@ var Volunteer = require('./backend/models/volunteer.js');
 app.use(cors()); 
 app.use(bodyParser.json());
 
-const Joi=require('@hapi/joi');
-
-const aschema={
-   firstname:Joi.string().min(8).required(),
-   lastname:Joi.string().min(6).required(),
-   email:Joi.string().min(6).required().email(),
-   password:Joi.string().min(6).required(),
-   mobile:Joi.string().max(10).required(),
-   age:Joi.number().min(18).max(60).required()
-}
 app.post('/volunteerregister', (req, res) => {
 
     //validating volunteer data
-    const {error}=Joi.validate(req.body,aschema);
-    if(error) return res.status(400).send(error.details[0].message)
-    
+
     var volunteerData = req.body;
     var volunteer = new Volunteer((volunteerData));
     volunteer.save((err, newvolunteer) => {
@@ -41,10 +29,6 @@ app.post('/volunteerregister', (req, res) => {
 
     })
 })
-
-
-
-
 
 
 mongoose.connect('mongodb+srv://saisarika:saisarika@cluster0-o6ntu.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
