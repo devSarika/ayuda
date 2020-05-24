@@ -9,7 +9,8 @@ import {FormsModule} from '@angular/forms'
 
 import {AuthService} from './auth.service';
 import { VolunteerComponent } from './volunteer/volunteer.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { VolunteerhomepageComponent } from './volunteerhomepage/volunteerhomepage.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,9 @@ import { HomeComponent } from './home/home.component'
     
     VolunteerComponent,
     
-    HomeComponent
+    HomeComponent,
+    
+    VolunteerhomepageComponent
   ],
   imports: [
     BrowserModule,

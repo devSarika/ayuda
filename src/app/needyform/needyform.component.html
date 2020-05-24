@@ -1,39 +1,112 @@
 <br><br>
 <div class="container">
-<form class="form-horizontal">
-    <div class="form-group">
-        <label class="control-label col-sm-2" id="fullname">FullName:</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" placeholder="Enter Name">
+<form class="form-horizontal" #family="ngForm" method="post">
+
+    <div class="form-group" >
+        <label class="control-label col-sm-2" id="fullname">First Name:</label>
+        <div class="col-sm-4"  [class.has-error]="firstname.invalid && firstname.touched" [class.has-success]="firstname.valid">
+            <input type="text" required [(ngModel)]="familyData.firstname" id="firstname" class="form-control" name="firstname" placeholder="Enter First Name"  #firstname="ngModel" >
+            <span class="help-block" *ngIf="firstname.invalid && firstname.touched">First Name is Required</span>
+        </div> 
+
+        <label class="control-label col-sm-2" id="fullname">Last Name:</label>
+        <div class="col-sm-4" [class.has-error]="lastname.invalid && lastname.touched" [class.has-success]="lastname.valid">
+            <input type="text" [(ngModel)]="familyData.lastname" class="form-control" name="lastname" placeholder="Enter Last Name" 
+            #lastname="ngModel" required>
+            <span class="help-block" *ngIf="lastname.invalid && lastname.touched">Last Name is Required</span>
         </div> 
     </div>
+
     <div class="form-group">
         <label class="control-label col-sm-2" id="fullname">Aadhar No:</label>
-        <div class="col-sm-5">
-            <input type="number" class="form-control" placeholder="Enter Aadhar no">
+        <div class="col-sm-4" [class.has-error]="aadhar.invalid &&aadhar.touched" [class.has-success]="aadhar.valid">
+            <input type="number" [(ngModel)]="familyData.aadhar" class="form-control" name="aadhar" placeholder="Enter Aadhar no"
+            #aadhar="ngModel" required>
+            <span class="help-block" *ngIf="aadhar.invalid && aadhar.touched">Aadhar no is Required</span>
         </div> 
-    <!-- </div>
-     <div class="form-group"> -->
         <label class="control-label col-sm-2" id="fullname">Family Income:</label>
-        <div class="col-sm-3">
-            <input type="number" class="form-control" placeholder="Enter Family Income">
+        <div class="col-sm-4" [class.has-error]="income.invalid && income.touched" [class.has-success]="income.valid">
+            <input type="number" [(ngModel)]="familyData.income" class="form-control" name="income" placeholder="Enter Family Income"
+            #income="ngModel" required>
+            <span class="help-block" *ngIf="income.invalid && income.touched">Family income is Required</span>
         </div> 
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" id="fullname">No of Persons</label>
-        <div class="col-sm-3">
-            <input type="number" class="form-control" placeholder="Enter No of Personss">
+        <label class="control-label col-sm-2" id="fullname">No of Adults:</label>
+        <div class="col-sm-2" [class.has-error]="adults.invalid && adults.touched" [class.has-success]="adults.valid">
+            <input type="number" [(ngModel)]="familyData.adults" class="form-control" name="adults" placeholder="Enter No of Adults"
+            #adults="ngModel" required>
+            <span class="help-block" *ngIf="adults.invalid && adults.touched">Adults number is Required</span>
         </div> 
-        <label class="control-label col-sm-2" id="fullname">Occupation:</label>
-        <div class="col-sm-5">
-            <input type="text" class="form-control" placeholder="Enter Occupation">
-        </div>
+        <label class="control-label col-sm-2" id="fullname">No of Children:</label>
+        <div class="col-sm-2" [class.has-error]="children.invalid && children.touched" [class.has-success]="children.valid">
+            <input type="number" [(ngModel)]="familyData.children" class="form-control" name="children" placeholder="Enter No of Children" 
+            #children="ngModel" required>
+            <span class="help-block" *ngIf="children.invalid && children.touched">Children number is Required</span>
+        </div> 
+        <label class="control-label col-sm-2" id="fullname">No of Persons: persons</label>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" id="fullname">Situation:</label>
+        <div class="col-sm-10"  [class.has-success]="situation.valid" [class.has-error]="situation.invalid && situation.touched">
+            <textarea type="text" [(ngModel)]="familyData.situation" class="form-control" name="situation" placeholder="Explain Your Situation in words"
+            #situation="ngModel" required> </textarea>
+            <span class="help-block" *ngIf="situation.invalid && situation.touched">situatiom is Required</span>
+        </div> 
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2" id="fullname">Location:</label>
-        <div class="col-sm-10">
-            <textarea type="text" class="form-control" placeholder="Enter Location"> </textarea>
+        <div class="col-sm-10" [class.has-error]="location.invalid && location.touched" [class.has-success]="location.valid" >
+            <textarea type="text" [(ngModel)]="familyData.location" class="form-control" name="location" placeholder="Enter Location"
+            #location="ngModel" required> </textarea>
+            <span class="help-block" *ngIf="location.invalid && location.touched">Location is Required</span>
         </div> 
     </div>
+    <div class="form-group" >
+        <label class="control-label col-sm-2" name="requirment" id="fullname">Requirment:</label>
+        <label class="col-sm-1"></label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Food
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Medical
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Education
+        </label>
+        <label class="checkbox-inline col-sm-2">
+            <input type="checkbox" >Transportation
+        </label>
+       
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" id="fullname">Occupation:</label>
+        <div class="col-sm-4" [class.has-error]="occupation.invalid && occupation.touched" [class.has-success]="occupation.valid" >
+            <input type="text" [(ngModel)]="familyData.occupation" class="form-control" name="occupation" placeholder="Enter Occupation"
+            #occupation="ngModel" required>
+            <span class="help-block" *ngIf="occupation.invalid && occupation.touched">Occupation is Required</span>
+        </div>
+        <label class="control-label col-sm-2" id="fullname">Phone No:</label>
+        <div class="col-sm-4" [class.has-error]="phone.invalid && phone.touched"  [class.has-success]="phone.valid" >
+            <input type="number" [(ngModel)]="familyData.phoneno"  class="form-control" name="phoneno" placeholder="Enter Phone no" 
+            maxlength="10" #phone="ngModel" required>
+            <span class="help-block" *ngIf="phone.invalid && phone.touched">Phone number is Required</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" name="city" id="fullname">City:</label>
+        <div class="col-sm-10">
+         <select class="form-control">
+             <option class="form-control">Hyderabad</option>
+             <option class="form-control">Karimanagar</option>
+         </select>
+        </div>
+    </div>
+
+    <div >
+        <button type="submit" (click)="register()" class="btn btn-success" [disabled]="family.invalid">Submit</button>
+    </div>
+
 </form>
 </div>
