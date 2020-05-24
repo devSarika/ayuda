@@ -8,13 +8,16 @@ import { NeedyformComponent } from './needyform/needyform.component';
 import {FormsModule} from '@angular/forms'
 
 import {AuthService} from './auth.service';
-import { VolunteerComponent } from './volunteer/volunteer.component'
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { HomeComponent } from './home/home.component'
 @NgModule({
   declarations: [
     AppComponent,
     NeedyformComponent,
     
-    VolunteerComponent
+    VolunteerComponent,
+    
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,7 @@ app.post('/volunteerregister', (req, res) => {
 })
 
 
-mongoose.connect('mongodb+srv://saisarika:saisarika@cluster0-o6ntu.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect('mongodb+srv://saisarika:saisarika@cluster0-o6ntu.mongodb.net/ayuda?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
     if (!err)
         console.log('Connected to DB')
 })
